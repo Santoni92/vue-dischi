@@ -1,14 +1,16 @@
 <template>
   <div class="card">
-      <img :src="singleAlbum.poster" alt="">
-      <div class="title">
-          <span>{{singleAlbum.title}}</span>
-      </div>
-      <div class="author-year">
-          <span>{{singleAlbum.author}}</span>
-          <span>{{singleAlbum.year}}</span>
-      </div>
-  </div>
+     <div class=card-item>
+          <img :src="singleAlbum.poster" alt="">
+          <div class="title">
+             <span>{{singleAlbum.title}}</span>
+          </div>
+            <div class="author-year">
+                <span>{{singleAlbum.author}}</span>
+                 <span>{{singleAlbum.year}}</span>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -28,30 +30,33 @@ export default {
 
 <style lang="scss" scoped>
 .card{
-    width:calc(100% / 5);
     padding:20px;
+    width:calc(100% / 5);
     display:flex;
     flex-direction:column;
-    background-color:#2e3a46 ;
-    img{
-        width:100%;
-        margin-bottom:10px;
-    }
-    .title{
-        display: flex;
-        flex-direction:column;
-        margin-bottom:20px;
-        text-align:center;
-        color:white;
-        font-weight:700;
-        text-transform: uppercase;
-    }
-    .author-year{
-         display: flex;
-        flex-direction:column;
-        align-items:center;
-        color:#808077;
-    }
+    .card-item{
+        background-color:#2e3a46 ;
+                img{
+                     width:100%;
+                    margin-bottom:10px;
+                    }
+                 .title{
+                        display: flex;
+                        flex-direction:column;
+                        margin-bottom:20px;
+                        text-align:center;
+                        color:white;
+                        font-weight:700;
+                        text-transform: uppercase;
+                        }
+                 .author-year{
+                             display: flex;
+                             flex-direction:column;
+                            align-items:center;
+                             color:#808077;
+                            }
+                 }
+
 }
 
 </style>
