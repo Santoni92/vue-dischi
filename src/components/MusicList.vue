@@ -21,7 +21,7 @@ export default {
     },
     methods:{
         loadData(){
-            axios.get('this.url',true).then((response)=>{
+            axios.get(this.url,true).then((response)=>{
                 console.log(response);
             })
         }
