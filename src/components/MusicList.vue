@@ -9,7 +9,9 @@
                 :singleAlbum="item"
             />
           </div>
-          <div v-else><!--qui andrà il componente con il loader cosicchè mentre l'utente attende il risultato del server e quindi la visualizzazione degli elementi nella pagina verrà visualizzato un loader---></div>
+          <div v-else>
+              <!--qui andrà il componente con il loader cosicchè mentre l'utente attende il risultato del server e quindi la visualizzazione degli elementi nella pagina verrà visualizzato un loader--->
+          </div>
       </div>
   </main>
 </template>
@@ -40,7 +42,9 @@ export default {
                     this.albums = resultFromApi.data.response;
                     console.log(this.albums[0]);
                 }
-            })
+            }).catch((err) => {
+                console.log(err);
+            });
         }
     },
     components:{

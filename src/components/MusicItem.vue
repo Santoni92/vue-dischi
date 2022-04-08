@@ -1,6 +1,13 @@
 <template>
-  <div>
+  <div class="card">
       <img :src="singleAlbum.poster" alt="">
+      <div class="title">
+          <span>{{singleAlbum.title}}</span>
+      </div>
+      <div class="author-year">
+          <span>{{singleAlbum.author}}</span>
+          <span>{{singleAlbum.year}}</span>
+      </div>
   </div>
 </template>
 
@@ -19,7 +26,27 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+.card{
+    width:calc(100% / 5);
+    display:flex;
+    flex-direction:column;
+    background-color:#2e3a46 ;
+    img{
+        width:100%;
+        margin-bottom:5px;
+    }
+    .title{
+        display: flex;
+        flex-direction:column;
+        margin-bottom:10px;
+        color:white;
+        text-transform: uppercase;
+    }
+    .author-year{
+        color:#808077;
+    }
+}
 
 </style>
 
