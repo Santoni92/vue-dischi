@@ -17,7 +17,7 @@ export default {
         url:String
     },
     mounted(){
-        this.loadData;
+        this.loadData();
     },
     methods:{
         loadData(){
