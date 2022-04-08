@@ -35,6 +35,7 @@ export default {
     display:flex;
     flex-direction:column;
     .card-item{
+        height:100%;
         background-color:#2e3a46 ;
                 img{
                      width:100%;
