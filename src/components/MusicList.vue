@@ -55,7 +55,8 @@ export default {
 
 <style lang="scss" scoped> 
 main{
-    
+    background-color: #1e2d3b;
+    flex-grow:1;
     .container{
          max-width:1200px;
          margin:0 auto;

@@ -34,16 +34,20 @@ export default {
     background-color:#2e3a46 ;
     img{
         width:100%;
-        margin-bottom:5px;
+        margin-bottom:10px;
     }
     .title{
         display: flex;
         flex-direction:column;
-        margin-bottom:10px;
+        margin-bottom:20px;
+        text-align:center;
         color:white;
         text-transform: uppercase;
     }
     .author-year{
+         display: flex;
+        flex-direction:column;
+        align-items:center;
         color:#808077;
     }
 }
