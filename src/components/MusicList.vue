@@ -1,12 +1,13 @@
 <template>
   <main>
       <div class="container">
-          <div v-if="albums.length > 0">    <!--sino a che il server non risponde restituendomi l'array di 10 elementi (vedi il console log) visualizzo il componente con il loader-->
+          <div v-if="albums.length > 0" class="album-gallery">    <!--sino a che il server non risponde restituendomi l'array di 10 elementi (vedi il console log) visualizzo il componente con il loader-->
+          <!--sotto componente che mi serve per visualizzare il singolo album che compare nella galleria-->
             <MusicItem 
                 v-for="(item,index) in albums"
                 :key="index"
                 :singleAlbum="item"
-            >
+            />
           </div>
           <div v-else><!--qui andrà il componente con il loader cosicchè mentre l'utente attende il risultato del server e quindi la visualizzazione degli elementi nella pagina verrà visualizzato un loader---></div>
       </div>
@@ -15,6 +16,8 @@
 
 <script>
 import axios from 'axios';  //prende il riferimento presente nella cartella node_modules (é questa l'istruzione per importare la libreria axios)
+import MusicItem from '@/components/MusicItem.vue'
+
 export default {
     name:'MusicList',
     data(){
@@ -52,6 +55,10 @@ main{
     .container{
          max-width:1200px;
          margin:0 auto;
+         .album-gallery{
+             display:flex;
+             flex-wrap:wrap;
+         }
         }
 }
      

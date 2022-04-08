@@ -1,6 +1,6 @@
 <template>
   <div>
-      
+      <img :src="singleAlbum.poster" alt="">
   </div>
 </template>
 
