@@ -29,6 +29,7 @@ export default {
 <style lang="scss" scoped>
 .card{
     width:calc(100% / 5);
+    padding:20px;
     display:flex;
     flex-direction:column;
     background-color:#2e3a46 ;
@@ -42,6 +43,7 @@ export default {
         margin-bottom:20px;
         text-align:center;
         color:white;
+        font-weight:700;
         text-transform: uppercase;
     }
     .author-year{
