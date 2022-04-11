@@ -55,7 +55,6 @@ export default {
                     this.albums = this.albums[i];
                 }
             }
-            return this.albums;
         }
     },
     components:{
