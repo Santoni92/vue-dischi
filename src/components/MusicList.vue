@@ -8,7 +8,7 @@
                 :key="index"
                 :singleAlbum="item"
             />
-            <MusicSearch  @search="filterByGenre"/>
+            <MusicSearch @search="filterByGenre"/>
           </div>
           <div v-else>
               <!--qui andrà il componente con il loader cosicchè mentre l'utente attende il risultato del server e quindi la visualizzazione degli elementi nella pagina verrà visualizzato un loader--->
@@ -48,7 +48,14 @@ export default {
             });
         },
         filterByGenre(searchGenre){
-            return this.albums.filter(album => album.genre === searchGenre);
+            //this.albums = this.albums.filter(album => album.genre === searchGenre);
+            for(let i = 0; i < this.albums.length; i++)
+            {
+                if(this.albums[i].genre === searchGenre){
+                    this.albums = this.albums[i];
+                }
+            }
+            return this.albums;
         }
     },
     components:{
