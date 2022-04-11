@@ -47,10 +47,8 @@ export default {
                 console.log(err);
             });
         },
-        computed:{
-            filterByGenre(searchGenre){
-                 return this.albums.filter(album => album.genre === searchGenre);
-                }
+        filterByGenre(searchGenre){
+            return this.albums.filter(album => album.genre === searchGenre);
         }
     },
     components:{
