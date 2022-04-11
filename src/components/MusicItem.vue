@@ -36,6 +36,8 @@ export default {
     flex-direction:column;
     .card-item{
         height:100%;
+        display:flex;
+        flex-direction:column;
         background-color:#2e3a46 ;
                 img{
                      width:100%;
@@ -51,6 +53,7 @@ export default {
                         text-transform: uppercase;
                         }
                  .author-year{
+                      flex-grow:1;
                              display: flex;
                              flex-direction:column;
                             align-items:center;

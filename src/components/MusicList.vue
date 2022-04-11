@@ -8,6 +8,7 @@
                 :key="index"
                 :singleAlbum="item"
             />
+            <MusicSearch  @search="filterByGenre"/>
           </div>
           <div v-else>
               <!--qui andrà il componente con il loader cosicchè mentre l'utente attende il risultato del server e quindi la visualizzazione degli elementi nella pagina verrà visualizzato un loader--->
@@ -19,7 +20,7 @@
 <script>
 import axios from 'axios';  //prende il riferimento presente nella cartella node_modules (é questa l'istruzione per importare la libreria axios)
 import MusicItem from '@/components/MusicItem.vue'
-
+import MusicSearch from '@/components/MusicSearch.vue'
 export default {
     name:'MusicList',
     data(){
@@ -45,10 +46,16 @@ export default {
             }).catch((err) => {
                 console.log(err);
             });
+        },
+        computed:{
+            filterByGenre(searchGenre){
+                 return this.albums.filter(album => album.genre === searchGenre);
+                }
         }
     },
     components:{
-        MusicItem
+        MusicItem,
+        MusicSearch
     }
 }
 </script>
@@ -63,6 +70,7 @@ main{
     .container{
          max-width:1200px;
          margin:0 auto;
+         overflow:auto;
          .album-gallery{
              display:flex;
              flex-wrap:wrap;
