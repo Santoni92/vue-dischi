@@ -14,8 +14,8 @@ export default {
     name:'MusicSearch',
     data(){
         return{
-            //selectedLabel: '',
-            inputText: ''
+            selectedLabel: '',
+            /*inputText: ''*/
             }
     },
     methods:{
