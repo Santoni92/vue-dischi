@@ -3,12 +3,13 @@
       <div class="container">
           <div v-if="albums.length > 0" class="album-gallery">    <!--sino a che il server non risponde restituendomi l'array di 10 elementi (vedi il console log) visualizzo il componente con il loader-->
           <!--sotto componente che mi serve per visualizzare il singolo album che compare nella galleria-->
+           <!--v-for="(item,index) in albums"-->
             <MusicItem 
-                v-for="(item,index) in albums"
+                v-for="(item,index) in filteredAlbums"
                 :key="index"
                 :singleAlbum="item"
             />
-            <MusicSearch @search="filterByGenre"/>
+            <MusicSearch :categories="genres" @changedCategories="filterByGenre"/>
           </div>
           <div v-else>
               <!--qui andrà il componente con il loader cosicchè mentre l'utente attende il risultato del server e quindi la visualizzazione degli elementi nella pagina verrà visualizzato un loader--->
@@ -24,7 +25,9 @@ import MusicSearch from '@/components/MusicSearch.vue'
 export default {
     name:'MusicList',
     data(){
-        return{ albums:[]};
+        return{ albums:[],
+                searchGenre:''
+        };
     },
     props:{
         url:String
@@ -48,13 +51,27 @@ export default {
             });
         },
         filterByGenre(searchGenre){
-            //this.albums = this.albums.filter(album => album.genre === searchGenre);
-            for(let i = 0; i < this.albums.length; i++)
+              console.log('MusicList selectedCategory', searchGenre);
+              this.searchGenre = searchGenre;
+            //return  copyAlbums.filter(album => album.genre === searchGenre);
+        }
+    },
+    computed:{
+        genres(){
+                   const genres = this.albums.map((album)=>album.genre);
+                   const uniqueGenres = [...new Set(genres)]; // trick per eliminare elementi duplicati
+                   return uniqueGenres;
+    
+                 },
+        filteredAlbums(){
+            // associo l'array intero oppure filtrato per categoria in base al valore della select html
+            let filteredByGenre = this.albums;
+            if (this.searchGenre!=='')
             {
-                if(this.albums[i].genre === searchGenre){
-                    this.albums = this.albums[i];
-                }
+                filteredByGenre = filteredByGenre.filter(({genre}) => genre === this.searchGenre);
             }
+            return filteredByGenre;
+
         }
     },
     components:{
